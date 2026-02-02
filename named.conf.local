@@ -1,0 +1,14 @@
+zone "botson.org" {
+    type master;
+    file "/etc/bind/zones/db.botson.org";
+};
+
+zone "estacions.botson.org" {
+    type master;
+    file "/etc/bind/zones/db.estacions.botson.org";
+};
+
+zone "50.18.10.in-addr.arpa" {
+    type master;
+    file "/etc/bind/zones/db.50.18.10";
+};
