@@ -1,54 +1,30 @@
-#!/bin/bash
-# Script d'instal·lació DNS Grup 9 (.ORG)
-# Repositori: https://github.com/toni-crespi/DNS-script
+echo "=== Instal·lant Bind9 ==="
+apt update && apt install -y bind9 bind9utils bind9-doc wget
 
-echo "=== 1. Instal·lant Bind9 i eines necessàries ==="
-apt update && apt install -y bind9 bind9-utils bind9-dnsutils wget
-
-echo "=== 2. Preparant carpetes del servidor ==="
+echo "=== Creant carpeta de zones a /etc/bind/zones ==="
 mkdir -p /etc/bind/zones
 
-echo "=== 3. Descarregant fitxers des del teu GitHub ==="
-https://github.com/toni-crespi/DNS-script.git="https://raw.githubusercontent.com/toni-crespi/DNS-script/main"
+echo "=== Descarregant fitxers de configuració des de GitHub ==="
 
-# 1. Configuració principal
-# Descarreguem named.conf.local i el posem al lloc de sempre
-wget https://github.com/toni-crespi/DNS-script.git/named.conf.local -O /etc/bind/named.conf.local
+# Descarreguem zona botson.org
+wget https://raw.githubusercontent.com/toni-crespi/DNS-script/main/db.botson.org -O /etc/bind/zones/db.botson.org
 
-# 2. Zona Botson.org
+# Descarreguem zona estacions (Compte: al teu GitHub es diu 'db.estacionsbotson.org')
+wget https://raw.githubusercontent.com/toni-crespi/DNS-script/main/db.estacionsbotson.org -O /etc/bind/zones/db.estacions.botson.org
 
-wget https://github.com/toni-crespi/DNS-script.git/db.botson.org -O /etc/bind/zones/db.botson.org
+# Descarreguem zona inversa (Compte: al teu GitHub es diu 'db.zonainversa')
+wget https://raw.githubusercontent.com/toni-crespi/DNS-script/main/db.zonainversa -O /etc/bind/zones/db.50.18.10
 
-# 3. Zona Estacions
+# Descarreguem configuració general
+wget https://raw.githubusercontent.com/toni-crespi/DNS-script/main/named.conf.local -O /etc/bind/named.conf.local
 
-wget https://github.com/toni-crespi/DNS-script.git/db.estacionsbotson.org -O /etc/bind/zones/db.estacions.botson.org
-
-# 4. Zona Inversa
-
-wget https://github.com/toni-crespi/DNS-script.git/db.zonainversa -O /etc/bind/zones/db.50.18.10
-
-echo "=== 4. Ajustant permisos i propietaris ==="
-chown -R bind:bind /etc/bind/zones
-chown bind:bind /etc/bind/named.conf.local
-chmod 644 /etc/bind/zones/*
-chmod 644 /etc/bind/named.conf.local
-
-echo "=== 5. Verificant sintaxi dels fitxers descarregats ==="
-# Comprovem que el que hem baixat no tingui errors
+echo "=== Comprovant sintaxi ==="
 named-checkconf
-if [ $? -eq 0 ]; then
-    echo "named.conf.local OK"
-else
-    echo "ALERTA: Hi ha un error al named.conf.local descarregat."
-fi
-
 named-checkzone botson.org /etc/bind/zones/db.botson.org
 named-checkzone estacions.botson.org /etc/bind/zones/db.estacions.botson.org
 named-checkzone 50.18.10.in-addr.arpa /etc/bind/zones/db.50.18.10
 
-echo "=== 6. Reiniciant el Servei DNS ==="
+echo "=== Reiniciant Bind9 ==="
 systemctl restart bind9
 systemctl enable bind9
-
-echo "=== ESTAT FINAL ==="
-systemctl status bind9 --no-pager
+systemctl status bind9
