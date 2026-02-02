@@ -1,0 +1,14 @@
+$TTL    60
+@       IN      SOA     ns01.botson.org. admin.botson.org. (
+                              2026020101 ; Serial
+                              120        ; Refresh
+                              60         ; Retry
+                              86400      ; Expire
+                              60 )       ; Negative Cache TTL
+@       IN      NS      ns01.botson.org.
+@       IN      NS      ns02.botson.org.
+110     IN      PTR     est01.estacions.botson.org.
+111     IN      PTR     est02.estacions.botson.org.
+112     IN      PTR     est03.estacions.botson.org.
+113     IN      PTR     est04.estacions.botson.org.
+114     IN      PTR     est05.estacions.botson.org.
