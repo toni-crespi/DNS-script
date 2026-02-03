@@ -13,7 +13,7 @@ ns01    IN      A       192.168.146.20
 ns02    IN      A       192.168.146.21
 mail01  IN      A       192.168.146.22
 mail02  IN      A       192.168.146.23
-web     IN      A       192.168.146.24
+web     IN      A       192.168.146.224
 file    IN      A       192.168.146.25
 www     IN      CNAME   web.botson.org.
 ftp     IN      CNAME   file.botson.org.
