@@ -7,8 +7,8 @@ $TTL    60
                               60 )       ; Negative Cache TTL
 @       IN      NS      ns01.botson.com.
 @       IN      NS      ns02.botson.com.
-110     IN      PTR     est01.estacions.botson.com.
-111     IN      PTR     est02.estacions.botson.com.
-112     IN      PTR     est03.estacions.botson.com.
-113     IN      PTR     est04.estacions.botson.com.
-114     IN      PTR     est05.estacions.botson.com.
+163     IN      PTR     est01.estacions.botson.com.
+164     IN      PTR     est02.estacions.botson.com.
+165     IN      PTR     est03.estacions.botson.com.
+166     IN      PTR     est04.estacions.botson.com.
+167     IN      PTR     est05.estacions.botson.com.
