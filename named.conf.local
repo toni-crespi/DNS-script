@@ -1,11 +1,11 @@
-zone "botson.org" {
+zone "botson.com" {
     type master;
-    file "/etc/bind/zones/db.botson.org";
+    file "/etc/bind/zones/db.botson.com";
 };
 
-zone "estacions.botson.org" {
+zone "estacions.botson.com" {
     type master;
-    file "/etc/bind/zones/db.estacions.botson.org";
+    file "/etc/bind/zones/db.estacions.botson.com";
 };
 
 zone "50.18.10.in-addr.arpa" {
