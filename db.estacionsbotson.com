@@ -1,12 +1,12 @@
 $TTL    60
-@       IN      SOA     ns01.botson.org. admin.botson.org. (
+@       IN      SOA     ns01.botson.com. admin.botson.com. (
                               2026020101 ; Serial
                               120        ; Refresh
                               60         ; Retry
                               86400      ; Expire
                               60 )       ; Negative Cache TTL
-@       IN      NS      ns01.botson.org.
-@       IN      NS      ns02.botson.org.
+@       IN      NS      ns01.botson.com.
+@       IN      NS      ns02.botson.com.
 est01   IN      A       10.18.50.110
 est02   IN      A       10.18.50.111
 est03   IN      A       10.18.50.112
