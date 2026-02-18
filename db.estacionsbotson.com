@@ -7,8 +7,8 @@ $TTL    60
                               60 )       ; Negative Cache TTL
 @       IN      NS      ns01.botson.com.
 @       IN      NS      ns02.botson.com.
-est01   IN      A       10.18.50.110
-est02   IN      A       10.18.50.111
-est03   IN      A       10.18.50.112
-est04   IN      A       10.18.50.113
-est05   IN      A       10.18.50.114
+est01   IN      A       10.18.50.163
+est02   IN      A       10.18.50.164
+est03   IN      A       10.18.50.165
+est04   IN      A       10.18.50.166
+est05   IN      A       10.18.50.167
